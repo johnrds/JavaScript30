@@ -9,7 +9,7 @@ Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
 ## Table Of Contents
 
 01. [x] JavaScript Drum Kit
-02. [ ] CSS + JS Clock
+02. [x] CSS + JS Clock
 03. [ ] Playing with CSS Variables and JS
 04. [ ] Array Cardio Day 1
 05. [ ] Flex Panel Image Gallery
@@ -32,7 +32,7 @@ Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
 22. [ ] Follow Along Link
 23. [ ] Speech Synthesis
 24. [ ] Sticky Nav
-25. [ ] Event Capture, Propagation, Bubbling and Once
+25. [x] Event Capture, Propagation, Bubbling and Once
 26. [ ] Stripe Follow Along Dropdown
 27. [ ] Click and Drag to Scroll
 28. [ ] Video Speed Controller UI
