@@ -11,7 +11,7 @@ Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
 01. [x] JavaScript Drum Kit
 02. [x] CSS + JS Clock
 03. [x] Playing with CSS Variables and JS
-04. [ ] Array Cardio Day 1
+04. [x] Array Cardio Day 1
 05. [ ] Flex Panel Image Gallery
 06. [ ] Ajax Type Ahead
 07. [ ] Array Cardio Day 2

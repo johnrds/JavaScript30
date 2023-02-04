@@ -5,7 +5,7 @@
   <title>Understanding JavaScript's Capture</title>
 </head>
 <body class="bod">
-
+  <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
   <div class="one">
     <div class="two">
       <div class="three">
@@ -63,8 +63,8 @@
   }
 
   divs.forEach(div => div.addEventListener('click', logText, {
-    capture: true,
-    once: true,
+    capture: true, //bubling on the way down
+    once: false,
   }));
 
   btn.addEventListener('click',()=>{
