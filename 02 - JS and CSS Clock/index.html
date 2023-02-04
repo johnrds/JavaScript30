@@ -17,7 +17,17 @@
     </div>
   </div>
 
-  <button><a href="./../index.html">Return to Homepage</a></button>
+<button style="
+  padding: 5px;
+  width: 170px;
+  font-size: 15px;
+  position: absolute;
+  bottom: 0px;
+  background-color: hsla(0, 0%, 100%, 0.9);
+  border: 1px solid hsl(0, 0%, 100%);
+  left: calc(50% - 85px);"><a style="
+  text-decoration: none;
+  color: black;" href="./../index.html">Return to Homepage</a></button>
   <style>
     html {
       background: #018DED url(https://unsplash.it/1500/1000?image=881&blur=5);
@@ -30,10 +40,7 @@
     body {
       margin: 0;
       font-size: 2rem;
-      display: flex;
-      flex: 1;
       min-height: 100vh;
-      align-items: center;
     }
 
     .clock {
@@ -69,23 +76,6 @@
       transition: all 0.05s;
       transition-timing-function: cubic-bezier(0, 2.82, 1, 1);
       transform: rotate(90deg);
-    }
-
-    button {
-      margin: 20px auto;
-      padding: 5px;
-      width: 170px;
-      font-size: 15px;
-      background-color: hsla(0, 0%, 100%, 0.9);
-      border: 1px solid hsl(0, 0%, 100%);
-      position: fixed;
-      bottom: 5px;
-      left: calc(50% - 85px);
-    }
-
-    a {
-      text-decoration: none;
-      color: black;
     }
   </style>
 
