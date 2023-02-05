@@ -6,7 +6,7 @@ Starter Files + Completed solutions for the JavaScript 30 Day Challenge.
 
 Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
 
-[https://johnrds.github.io/JavaScript30](View on GitHub Pages)
+[View on GitHub Pages](https://johnrds.github.io/JavaScript30)
 
 ## Table Of Contents
 
