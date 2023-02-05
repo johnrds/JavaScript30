@@ -6,6 +6,8 @@ Starter Files + Completed solutions for the JavaScript 30 Day Challenge.
 
 Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
 
+[https://johnrds.github.io/JavaScript30](View on GitHub Pages)
+
 ## Table Of Contents
 
 01. [x] JavaScript Drum Kit
@@ -13,7 +15,7 @@ Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
 03. [x] Playing with CSS Variables and JS
 04. [x] Array Cardio Day 1
 05. [x] Flex Panel Image Gallery
-06. [ ] Ajax Type Ahead
+06. [x] Ajax Type Ahead
 07. [ ] Array Cardio Day 2
 08. [ ] Fun with HTML5 Canvas
 09. [ ] 14 Must Know Dev Tools Tricks

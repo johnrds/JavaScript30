@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Type Ahead 👀</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <form class="search-form">
+    <input type="text" class="search" placeholder="City or State">
+    <ul class="suggestions">
+      <li>Filter for a city</li>
+      <li>or a state</li>
+    </ul>
+  </form>
+  <script>
+    const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+    const cities = [];
+
+    fetch(endpoint)
+      .then(blob => blob.json())
+      .then(data => cities.push(...data));
+
+    function wordSearch(word, array) {
+      return cities.filter(data => {
+        const regEx = new RegExp(word, 'gi');
+        return data.city.match(regEx) || data.state.match(regEx);
+      })
+    }
+
+    const searchInput = document.querySelector('.search');
+    const suggestionsList = document.querySelector('.suggestions');
+
+    function numberWithCommas(x){
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    }
+
+    function displaySearch() {
+      if (this.value === "" || this.value === null || this.value === 0) {
+        return suggestionsList.innerHTML = `<li>Filter for a city</li>
+      <li>or a state</li>`;
+      };
+
+      const matchArray = wordSearch(this.value, cities);
+
+      const html = matchArray.map(data => {
+        const regEx = new RegExp(this.value, 'gi');
+
+        dataCity = data.city.replace(regEx, `<span class="hl">${this.value}</span>`);
+        dataState = data.state.replace(regEx, `<span class="hl">${this.value}</span>`);
+
+        return `
+        <li>
+          <span class="name">${dataCity}, ${dataState}</span><span class="population">${numberWithCommas(data.population)}</span>
+        </li>  
+        `
+      }).join('');
+      suggestionsList.innerHTML = html;
+    };
+
+    searchInput.addEventListener('change', displaySearch);
+    searchInput.addEventListener('keyup', displaySearch);
+
+  </script>
+   <br><button style="
+  padding: 5px;
+  width: 170px;
+  font-size: 15px;
+  background-color: hsla(0, 0%, 100%, 0.9);
+  border: 1px solid hsl(0, 0%, 0%);
+  left: calc(50% - 85px);"><a style="
+  text-decoration: none;
+  color: black;" href="./../index.html">Return to Homepage</a></button>
+  
+</body>
+
+</html>
