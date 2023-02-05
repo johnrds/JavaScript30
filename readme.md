@@ -12,7 +12,7 @@ Grab the course at [https://JavaScript30.com](https://JavaScript30.com)
 02. [x] CSS + JS Clock
 03. [x] Playing with CSS Variables and JS
 04. [x] Array Cardio Day 1
-05. [ ] Flex Panel Image Gallery
+05. [x] Flex Panel Image Gallery
 06. [ ] Ajax Type Ahead
 07. [ ] Array Cardio Day 2
 08. [ ] Fun with HTML5 Canvas
