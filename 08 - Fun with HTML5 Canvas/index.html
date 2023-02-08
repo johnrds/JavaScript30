@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Canvas</title>
+</head>
+
+<body>
+  <div class="buttons">
+    <p>Try some composite <br> operation from canvas API:</p>
+    <button class="btn source-over clicked">source-over</button>
+    <button class="btn luminosity">luminosity</button>
+    <button class="btn hue">hue</button> 
+    <button class="btn color-burn">color-burn</button>
+    <button class="btn source-out">source-out</button>
+    <button class="btn multiply">multiply</button>
+    <button class="btn xor">xor</button>
+    <button class="btn overlay">overlay</button>
+    <button class="btn color-dodge">color-dodge</button>
+    <button class="btn soft-light">soft-light</button>
+  </div>
+  <canvas id="draw" width="800" height="800"></canvas>
+
+  <br><a style="
+  text-decoration: none;
+  color: black;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;" href="./../index.html"><button style="
+  padding: 5px;
+  cursor: pointer;
+  width: 170px;
+  font-size: 15px;
+  background-color: hsla(0, 0%, 100%, 0);
+  border: 1px solid hsl(0, 0%, 0%);
+  bottom: 0;
+  position: absolute;
+  left: calc(50% - 85px);">Return to Homepage</button></a>
+  <script>
+    const canvas = document.querySelector('#draw');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight - 100;
+
+    ctx.lineJoin = 'round';
+    ctx.lineCap = 'round'
+    ctx.globalCompositeOperation = 'source-over';
+
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+    let hue = 0;
+    let lineWidDirection = true;
+
+    function draw(e) {
+      // console.log(e);
+      if (!isDrawing) return
+
+      ctx.beginPath();
+      ctx.moveTo(lastX, lastY);
+      ctx.lineTo(e.clientX, e.clientY - 100)
+      ctx.stroke();
+
+      ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
+
+      [lastX, lastY] = [e.clientX, e.clientY - 100];
+
+      if (ctx.lineWidth === 200 || ctx.lineWidth === 1) {
+        lineWidDirection = !lineWidDirection;
+      };
+      lineWidDirection ? ctx.lineWidth++ : ctx.lineWidth--;
+
+      hue++;
+      if (hue === 360) hue = 0;
+    };
+
+    window.addEventListener('mousedown', (e) => {
+      isDrawing = true;
+      [lastX, lastY] = [e.clientX, e.clientY - 100];
+    });
+
+    canvas.addEventListener('mousemove', draw);
+    window.addEventListener('mouseup', () => isDrawing = false);
+    window.addEventListener('mouseout', () => isDrawing = false);
+
+    const btn = document.querySelectorAll('.btn');
+
+    btn.forEach(button => button.addEventListener('click', () => {
+      btn.forEach(button => button.classList.remove('clicked'));
+      button.classList.toggle('clicked');
+      ctx.globalCompositeOperation = button.innerText;
+    }));
+
+  </script>
+
+  <style>
+    html,
+    body {
+      margin: 0;
+    }
+
+    body {
+      display: grid;
+    }
+
+    .buttons {
+      -webkit-user-select: none;
+      /* Safari */
+      -ms-user-select: none;
+      /* IE 10 and IE 11 */
+      user-select: none;
+      /* Standard syntax */
+      display: grid;
+      grid-template-columns: 1.5fr repeat(5, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      align-items: center;
+      justify-items: center;
+      background-color: hsl(16, 100%, 45%);
+      color: white;
+      height: 100px;
+      width: 100%;
+      font-size: 20px;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+
+    p {
+      grid-row-start: 1;
+      grid-row-end: 3;
+    }
+
+    button {
+      transition: all 0.3s ease;
+      font: inherit;
+      background-color: white;
+      border: 1px solid hsl(16, 100%, 60%);
+      width: 170px;
+      height: 40px;
+    }
+
+    button.clicked {
+      background-color: hsl(16, 100%, 60%);
+      box-shadow: 0 0 8px hsl(16, 100%, 60%);
+      transform: scale(1.01);
+      color: white;
+    }
+  </style>
+
+</body>
+
+</html>
